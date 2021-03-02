@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 /**
  * @User Related
  */
-Route::get('authors' ,'App\Http\Controllers\Api\\UserController@index');
-Route::get('authors/{id}' ,'App\Http\Controllers\Api\\UserController@show');
-Route::get('posts/author/{id}' ,'App\Http\Controllers\Api\\UserController@posts');
-Route::get('comments/author/{id}' ,'App\Http\Controllers\Api\\UserController@comments');
+Route::get('authors' ,'App\Http\Controllers\Api\UserController@index');
+Route::get('authors/{id}' ,'App\Http\Controllers\Api\UserController@show');
+Route::get('posts/author/{id}' ,'App\Http\Controllers\Api\UserController@posts');
+Route::get('comments/author/{id}' ,'App\Http\Controllers\Api\UserController@comments');
 
 // end User Related
 Route::middleware('auth:api')->get('/user', function (Request $request) {
