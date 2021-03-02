@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+/**
+ * @User Related
+ */
+Route::get('authors' ,'App\Http\Controllers\Api\\UserController@index');
+Route::get('authors/{id}' ,'App\Http\Controllers\Api\\UserController@show');
 
+// end User Related
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
