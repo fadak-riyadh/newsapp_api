@@ -14,4 +14,8 @@ class comment extends Model
         'user_id' ,
         'post_id'
     ];
+    // من عندي - اجتهاد شخصي لحل المشكلة
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
