@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AuthorCommentsResource;
 use App\Http\Resources\AuthorPostResource;
+use App\Http\Resources\TokenResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\UsersResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -83,4 +85,16 @@ class UserController extends Controller
         $comments = $user->comments()->paginate();
         return new AuthorCommentsResource($comments);
     }
+
+    public function getToken(Request $request){
+        $request -> validate(['email =>required', 'paddword=>required']);
+        $credentials = $request->only('email' ,'password');
+        if(Auth::attempt($credentials)){
+            $user= User::where('email', $request->get('email'))->first();
+            return new TokenResource(['token'=> $user->api_token]);
+        } return 'NOT FOUND fadak';
+    }
+
 }
+
+
