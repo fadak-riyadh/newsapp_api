@@ -19,7 +19,7 @@ class postController extends Controller
      */
     public function index()
     {
-        $post = Post::paginate();
+        $post = Post::with(['comments','author' , 'category']) ->paginate();
         return new PostsResource($post);
 
     }
