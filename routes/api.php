@@ -42,8 +42,10 @@ Route::post('token' , 'App\Http\Controllers\Api\UserController@getToken');
 Route::middleware('auth:api')->group(function(){
     Route::post('update_user/{id}' , 'App\Http\Controllers\Api\UserController@update');
     Route::post('posts' , 'App\Http\Controllers\Api\PostController@store');
+    Route::post('comment/posts/{id}' , 'App\Http\Controllers\Api\CommentController@store');
     Route::post('posts/{id}' , 'App\Http\Controllers\Api\PostController@update');
     Route::delete('posts/{id}' , 'App\Http\Controllers\Api\PostController@destroy');
+
 
 });
 
