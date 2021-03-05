@@ -17,7 +17,8 @@ class Post extends Model
         'votes_down',
         'user_id',
         'category_id',
-        'voters'
+        'voters_up',
+        'voters_down'
     ];
 
     public function author(){
