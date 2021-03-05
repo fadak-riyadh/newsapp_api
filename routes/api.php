@@ -45,6 +45,7 @@ Route::middleware('auth:api')->group(function(){
     Route::post('comment/posts/{id}' , 'App\Http\Controllers\Api\CommentController@store');
     Route::post('posts/{id}' , 'App\Http\Controllers\Api\PostController@update');
     Route::delete('posts/{id}' , 'App\Http\Controllers\Api\PostController@destroy');
+    Route::post('votes/posts/{id}' , 'App\Http\Controllers\Api\PostController@votes');
 
 
 });
